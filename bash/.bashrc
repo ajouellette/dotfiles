@@ -21,14 +21,8 @@ shopt -s checkwinsize
 PS1='\[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # aliases
-alias ll='ls -lhA'
-alias la='ls -A'
-alias cp='cp -v'
-alias mv='mv -v'
-alias rm='rm -vI'
-
-if command -v nvim &> /dev/null; then
-	alias vim='nvim'
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
 fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
