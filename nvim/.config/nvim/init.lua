@@ -28,7 +28,7 @@ vim.o.signcolumn = 'yes'
 vim.o.cursorline = true
 vim.o.colorcolumn = "80"
 
-vim.opt.clipboard = "unnamed"
+vim.opt.clipboard = "unnamedplus"
 
 -- <leader>d deletes text without overwriting clipboard
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
@@ -39,3 +39,5 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- netrw settings
 
+-- plugins
+require("config.lazy")
