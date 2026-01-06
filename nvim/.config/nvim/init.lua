@@ -29,13 +29,15 @@ vim.cmd.colorscheme('retrobox')
 vim.o.signcolumn = 'yes'
 vim.o.cursorline = true
 vim.o.colorcolumn = "80"
-vim.o.scrolloff = 10
+vim.o.scrolloff = 8
 
 -- new splits go to the right or bottom
 vim.o.splitright = true
 vim.o.splitbelow = true
 
-vim.opt.clipboard = "unnamedplus"
+vim.o.clipboard = "unnamedplus"
+
+vim.o.timeoutlen = 500
 
 -- <leader>d deletes text without overwriting clipboard
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
@@ -45,6 +47,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- <leader>pv opens netrw file browser
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- exit terminal mode with <Esc><Esc>
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- netrw settings
 
