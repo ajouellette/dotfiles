@@ -51,6 +51,16 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- exit terminal mode with <Esc><Esc>
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
+-- automatically switch between j/k and gj/gk
+-- k moves by display line (gk) when no count is given
+-- 5k moves by actual lines
+vim.keymap.set("n", "j", function()
+    return vim.v.count == 0 and "gj" or "j"
+end, { expr = true, noremap = true })
+vim.keymap.set("n", "k", function()
+    return vim.v.count == 0 and "gk" or "k"
+end, { expr = true, noremap = true })
+
 -- netrw settings
 
 -- plugins
