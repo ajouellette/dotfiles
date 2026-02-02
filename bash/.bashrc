@@ -10,7 +10,25 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
+if ! [[ "$PATH" =~ "$HOME/.cargo/bin:" ]]
+then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
 export PATH
+
+# set editor to nvim with vim as fallback
+if command -v nvim &> /dev/null; then
+    editor=nvim
+else
+    if command -v vim &> /dev/null; then
+        editor=vim
+    else
+        editor=vi
+    fi
+fi
+export EDITOR=$editor
+export VISUAL=$editor
+unset editor
 
 # History
 shopt -s histappend
